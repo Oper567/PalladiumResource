@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  background-color: #f8fafc; /* Subtle grey-blue background */
+  color: #0f172a; /* Midnight Navy text */
+  font-family: 'Inter', sans-serif;
+}
+
+/* Fix for the layout issue in your screenshot */
+#root {
+  width: 100%;
+}
+
+.nav-glass {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(15, 23, 42, 0.05);
+}
