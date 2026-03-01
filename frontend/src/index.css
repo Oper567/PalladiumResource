@@ -2,20 +2,48 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
+/* 1. Global Reset: Kill the horizontal scroll for good */
+html, body {
   margin: 0;
-  background-color: #f8fafc; /* Subtle grey-blue background */
-  color: #0f172a; /* Midnight Navy text */
-  font-family: 'Inter', sans-serif;
+  padding: 0;
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden; /* This is the "Magic Fix" for mobile width */
+  background-color: #fcfcfc; /* Matches your HomePage bg */
+  color: #0f172a; 
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* Fix for the layout issue in your screenshot */
+/* 2. Root Container Fix */
 #root {
   width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
+/* 3. Navigation Glass Effect (Elite level) */
 .nav-glass {
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(15, 23, 42, 0.05);
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+  transition: all 0.3s ease;
+}
+
+/* 4. Hide scrollbars but keep functionality (Optional but keeps it clean) */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* 5. Custom Industrial Selection Color */
+::selection {
+  background-color: #0f172a;
+  color: #ffffff;
 }
